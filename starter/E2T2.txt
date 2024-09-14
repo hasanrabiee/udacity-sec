@@ -1,0 +1,20 @@
+Research and analyze which of the vulnerabilities appear to be related to the code that was deployed for the environment in this project.
+
+
+Based on the project environment and architecture, here are two key vulnerabilities that appear to be related to the code that was deployed for the web service environment:
+
+1. Improper API Access Control (IAM Policy Misconfiguration):
+   - Vulnerability: The deployed code might be using overly permissive IAM roles or policies that allow broader access than required. This is evidenced by the possibility that stolen API credentials from the attack instance could be used to access the secret recipe vault.
+   - **Recommendation: Apply the principle of least privilege to IAM policies. Ensure that the IAM roles associated with the web application instance only have access to the necessary S3 buckets (e.g., the free-recipes bucket) and cannot access sensitive resources like the secret-recipe vault. Use AWS Identity and Access Management (IAM) policy conditions to restrict access based on specific EC2 instance roles or VPC subnet.
+
+2. Weak Authentication and Authorization for the Web Application**:
+   - Vulnerability: The deployed web service might not have robust authentication and authorization mechanisms, allowing potential attackers to compromise the API and gain unauthorized access to sensitive information.
+   - Recommendation: Implement strong authentication measures for the web application, such as token-based authentication (OAuth2) and Multi-Factor Authentication (MFA). Additionally, ensure proper authorization checks for each request, limiting access to sensitive data (like secret recipes) based on user roles and permissions.
+
+General Recommendations:
+   - Audit and Harden Security Groups: Restrict inbound traffic to the application to only necessary ports and trusted IPs. Use private subnets for sensitive instances.
+   - Use Secrets Management**: Avoid hardcoding sensitive information (e.g., API keys or access credentials) in the application code. Use AWS Secrets Manager or AWS Systems Manager Parameter Store to securely retrieve secrets at runtime.
+
+
+
+Bonus - provide recommendations on how to remediate the vulnerabilities.

@@ -1,0 +1,16 @@
+
+
+# Identify 2-3 changes that can be made to our environment to prevent an ssh brute force attack from the internet.
+
+Disable Password-Based SSH Access (Use Key-Based Authentication Only):
+Use a Bastion Host or VPN for SSH Access
+Enable Network-Level Protection with Firewalls (Security Groups and NACLs)
+
+
+
+# Neither instance should have had access to the secret recipes bucket, in the even that instance API credentials were compromised how could we have prevented access to sensitive data.
+
+
+Use IAM Roles with Least Privilege
+Implement S3 Bucket Policies with VPC Endpoints and Conditions
+Use AWS Secrets Manager or Parameter Store for Managing API Credentials

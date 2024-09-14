@@ -1,0 +1,28 @@
+# Identify tools that will allow you to do the following:
+1. Checkov (IaC Security Scanning)
+
+## Scan infrastructure as code templates
+Scan Infrastructure as Code (IaC) templates such as Terraform, CloudFormation, Kubernetes, and Helm for security and compliance violations.
+### Example vulnerability
+
+Exposed S3 Buckets: Checkov can detect if your S3 buckets are publicly accessible when they shouldn't be. This is a common compliance violation under the CIS AWS Foundations Benchmark.
+
+IAM Role with Wildcard Permissions: Checkov can identify when an IAM role or policy uses overly permissive wildcard actions (e.g., "Action": "*") that violate the principle of least privilege.
+
+
+##Scan AMI’s or containers for OS vulnerabilities
+2. Amazon Inspector (AMI/Container Scanning)
+
+### Example vulnerability
+Unpatched OS Vulnerabilities: Amazon Inspector can detect known vulnerabilities in operating systems (e.g., CVE-2021-3156 related to sudo privileges escalation). This could be critical for compliance under frameworks such as PCI DSS or HIPAA.
+
+Outdated or Vulnerable Packages in Container Images: Amazon Inspector will identify containers with known vulnerabilities in packages like OpenSSL, Apache, etc. These vulnerabilities might allow attackers to compromise the system.
+
+
+
+##Scan an AWS environment for cloud configuration vulnerabilities
+3. AWS Config (Cloud Configuration Vulnerability Scanning)
+
+### Example vulnerability
+
+Security Groups with Open Ports: AWS Config can detect when an EC2 instance’s security group allows unrestricted inbound access (e.g., port 22 open to the world for SSH). This is a common violation under CIS AWS Foundations Benchmark and could lead to a brute-force attack or unauthorized access.

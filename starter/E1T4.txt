@@ -1,0 +1,10 @@
+Based on the architecture diagram, and the steps you have taken so far to upload data and access the application web service, identify at least 2 obvious poor practices as it relates to security.  Include justification.
+
+# Poor practice 1
+Unrestricted SSH Access to Web Service and Attack Simulation Instances
+
+
+
+# Poor practice 2
+
+Stolen API Credentials Could Access Secret Recipe Vault
